@@ -1,7 +1,7 @@
 ---
-- hosts: "{{ HOSTS }}"
+- hosts: web
   vars:
-    service_name: undef
+    service_name: httpd
 
   tasks:
   - name: Check Service
@@ -9,6 +9,6 @@
 
   - name: Stop Service
     service:
-      name: "{{ service_name }}"
+      name: httpd
       state: stopped
-    when: service_name + '.service' in services
+    when: httpd + '.service' in services
